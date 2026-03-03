@@ -1,24 +1,11 @@
 from pydantic_settings import BaseSettings
 from pydantic import Field
-
-
 class Settings(BaseSettings):
-
-
-
-
     SECRET_KEY: str = Field(..., env="SECRET_KEY")
-
-
-
 
     ALGORITHM: str = Field("HS256", env="ALGORITHM")
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
-
-
-
-
 
 
     DATABASE_URL: str = Field(..., env="DATABASE_URL")
@@ -45,7 +32,6 @@ class Settings(BaseSettings):
     # OTP expiry for password reset (minutes)
     PASSWORD_RESET_OTP_EXPIRE_MINUTES: int = Field(30, env="PASSWORD_RESET_OTP_EXPIRE_MINUTES")
 
-    # Frontend URL
     FRONTEND_URL: str = Field("http://localhost:3000", env="FRONTEND_URL")
 
     REDIS_URL: str = Field("redis://localhost:6379/0", env="REDIS_URL")
@@ -60,3 +46,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
