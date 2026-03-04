@@ -1,25 +1,11 @@
 from pydantic_settings import BaseSettings
 from pydantic import Field
-
-
 class Settings(BaseSettings):
-
-
-
-
     SECRET_KEY: str = Field(..., env="SECRET_KEY")
-
-
-
 
     ALGORITHM: str = Field("HS256", env="ALGORITHM")
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
-
-
-
-
-
 
     DATABASE_URL: str = Field(..., env="DATABASE_URL")
 
@@ -60,3 +46,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
